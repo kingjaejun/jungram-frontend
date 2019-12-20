@@ -24,7 +24,7 @@ const PostContainer = ({
     const [toggleLikeMutation] = useMutation(TOGGLE_LIKE, {
         variables: {postId:id}
     })
-    const addCommentMutation = useMutation(ADD_COMMENT, {
+    const [addCommentMutation] = useMutation(ADD_COMMENT, {
         variables: {postId:id, text:comment.value}
     })
     
@@ -55,15 +55,17 @@ const PostContainer = ({
         const {which} = event;
         if( which === 13 ){
             event.preventDefault();
+            comment.setValue("");
             try{
                 const {
-                    data:{addComment} 
-                } = await addCommentMutation()   
+                    data:{addComment}
+                } = await addCommentMutation(); 
                 setSelfComments([...selfComments,addComment]);
-                comment.setValue("");
+                
             }catch{
                 toast.error("Can't upload comment")
             }
+        }
     };
         return (
             <PostPresenter 

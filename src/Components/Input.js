@@ -8,10 +8,17 @@ const Container = styled.input`
     background-color: ${props => props.theme.bgColor};
     height:35px;
     padding:0px 15px;
-    font-size:14px;
+    font-size:12px;
 `;
 
-const Input = ({placeholder, required=true, value, onChange, type="text", className}) =>(
+const Input = ({
+    placeholder,
+    required=true, 
+    value, 
+    onChange, 
+    type="text", 
+    className
+}) => (
     <Container
         className={className}
         placeholder={placeholder} 

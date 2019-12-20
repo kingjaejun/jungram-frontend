@@ -4,18 +4,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Auth from '../Routes/Auth';
 import Feed from '../Routes/Feed'
-import Explore from '../Routes/Explore';
-import Search from '../Routes/Search';
-import Profile from '../Routes/Profile';
-// import Post from '../Routes/Post';
+import Explore from '../Routes/Explore/index';
+import Search from '../Routes/Search/index';
+import Profile from '../Routes/Profile/index';
+
 
 const LoggedInRoutes = () => (
     <Switch>
         <Route exact path="/" component={Feed} />
-        <Route path="/:username" component={Profile} />
+        <Route path="/explore" component={Explore}/>
         <Route path="/search" component={Search} />
-        <Route path="/explore" component={Explore}/> 
-        <Redirect from="*" to="/"/>
+        <Route path="/:username" component={Profile} />
+        <Redirect from="*" to="/" />
     </Switch>
 );
 const LoggedOutRoutes = () => (

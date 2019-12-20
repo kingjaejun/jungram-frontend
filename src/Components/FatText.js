@@ -7,7 +7,9 @@ const Text = styled.span`
 `;
 
 const FatText = ({text, className}) =>(
-    <Text className={className}>{text}</Text>
+    <Text className={className}>
+        {text}
+    </Text>
     );
 
 

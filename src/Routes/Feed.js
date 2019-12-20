@@ -1,9 +1,10 @@
 import React from 'react';
 import {gql} from 'apollo-boost';
+import {Helmet} from 'react-helmet';
 import { useQuery } from 'react-apollo-hooks';
 import Loader from '../Components/Loader';
 import styled from 'styled-components';
-import Post from '../Components/Post';
+import Post from '../Components/Post/index';
 const FEED_QUERY =gql`
 {
     seeFeed{
@@ -45,6 +46,9 @@ export default () => {
     const {data, loading } = useQuery(FEED_QUERY);
     return (
         <Wrapper>
+            <Helmet>
+                <title>Feed | Jungram</title>
+            </Helmet>
             {loading && <Loader />}
             {!loading &&
                 data && 
@@ -65,4 +69,4 @@ export default () => {
                 ))}
         </Wrapper>
     );
-}
+} 

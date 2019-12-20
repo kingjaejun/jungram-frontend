@@ -26,7 +26,9 @@ const Wrapper = styled.div`
   width: 100%;
 `;
 export default () => {
-  const {data: {isLoggedIn}} = useQuery(QUERY)
+  const {
+    data: {isLoggedIn}
+  } = useQuery(QUERY)
   
   return (
     <ThemeProvider theme={Theme}>
